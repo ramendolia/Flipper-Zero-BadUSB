@@ -38,7 +38,7 @@ Get-BrowserData -Browser "edge" -DataType "bookmarks" >> $env:TMP\--BrowserData.
 
 Get-BrowserData -Browser "chrome" -DataType "history" >> $env:TMP\--BrowserData.txt
 
-Get-BrowserData -Browser "chrome" -DataType "bookmarks" >> $env:TMP--BrowserData.txt
+Get-BrowserData -Browser "chrome" -DataType "bookmarks" >> $env:TMP\--BrowserData.txt
 
 Get-BrowserData -Browser "firefox" -DataType "history" >> $env:TMP\--BrowserData.txt
 
