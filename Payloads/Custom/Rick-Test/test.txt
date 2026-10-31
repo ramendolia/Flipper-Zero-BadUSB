@@ -1,0 +1,16 @@
+REM ==========================================
+REM Rick - Flipper Zero Test
+REM ==========================================
+
+DELAY 1500
+
+GUI r
+DELAY 500
+
+STRING notepad
+ENTER
+
+DELAY 1500
+
+STRING Hola desde mi Flipper Zero!
+ENTER
